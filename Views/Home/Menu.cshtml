@@ -1,0 +1,32 @@
+@model IEnumerable<RestauranteSaborCasero.Models.Plato>
+@{
+    ViewData["Title"] = "Menú";
+    var categorias = Model.Select(p => p.Categoria).Distinct().ToList();
+}
+
+<section class="page-heading">
+    <div class="container">
+        <p class="eyebrow">HECHO CON CARIÑO</p>
+        <h1>Nuestro menú</h1>
+        <p>Algunas de nuestras opciones favoritas para compartir y disfrutar.</p>
+    </div>
+</section>
+
+<section class="container menu-section">
+    @foreach (var categoria in categorias)
+    {
+        <h2 class="category-title">@categoria</h2>
+        <div class="menu-grid">
+            @foreach (var plato in Model.Where(p => p.Categoria == categoria))
+            {
+                <article class="menu-card">
+                    <div class="card-top">
+                        <h3>@plato.Nombre</h3>
+                        <span class="price">C$ @plato.Precio.ToString("0.00")</span>
+                    </div>
+                    <p>@plato.Descripcion</p>
+                </article>
+            }
+        </div>
+    }
+</section>

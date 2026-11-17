@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Sabor Casero</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-container">
+            <a class="brand" asp-controller="Home" asp-action="Inicio">Sabor <span>Casero</span></a>
+            <nav aria-label="Navegación principal">
+                <a asp-controller="Home" asp-action="Inicio">Inicio</a>
+                <a asp-controller="Home" asp-action="Menu">Menú</a>
+                <a asp-controller="Home" asp-action="Nosotros">Nosotros</a>
+                <a asp-controller="Home" asp-action="Contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© @DateTime.Now.Year Restaurante Sabor Casero · El sabor de lo hecho en casa</p>
+        </div>
+    </footer>
+</body>
+</html>
